@@ -2,17 +2,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Modak&family=Moulpali&display=swap');
 
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 * {
   margin: 0;
   padding: 0;
 }
+
+/*_________________view error___________________________-*/
 
 .error-image {
   height: 160px;
   margin-top: 18px;
   margin-bottom: 20px;
 }
-
 .error-box {
   position: absolute;
   top: 0;
@@ -54,25 +63,20 @@ select {
 }
 
 header {
-  padding-top: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 65px;
+  height: 15vh;
   color: #1F0441;
   background-color: #FCAB10;
-  text-align: center;
   font-family: 'Titan One', sans-serif;
   font-size: 15px;
-  padding: 10px;
 }
 
 .button-container {
   display: flex;
-  justify-content: space-between;
   width: 100%;
-  margin-top: 10px;
 }
 
 .inputs {
@@ -109,21 +113,24 @@ body {
 
 img {
   height: 17vw;
-  margin-bottom: 15px;
   border-radius: 10px;
 }
 
-ul {
-  list-style: none;
+.cards-home {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 20px;
 }
 
+ul {
+  list-style: none;
+}
+
 .name-movie {
   font-size: 20px;
   margin-bottom: 3px;
+  margin-top: 15px;
 }
 
 .info-movie {
@@ -150,15 +157,17 @@ ul {
 
 .btn-home {
   cursor: pointer;
+  margin-top: 15px;
 }
 
 .btn-chat-grupal,
 .btn-api {
-  margin-right: 40px;
+  margin-right: 25px;
+  margin-bottom: 15px;
 }
 
 .btn-chat-grupal,
-.btn-api, .btn-accept, .btn {
+.btn-api, .btn-accept, .btn, .btn-salir-chat {
   padding: 2px;
   border-radius: 5px;
   background-color: #F9CE07;
@@ -169,14 +178,12 @@ ul {
   font-size: 1.1rem;
 }
 
-/*.btn{
-  font-family: "Modak", system-ui;
-  width: 16vw;
-  height: 4vw;
-  background-color: #F9CE07;
-  border-radius: 7px;
-  font-size: x-large;
-}*/
+.btn-salir-chat {
+  margin: 0 auto 2vh;
+  display: block;
+  text-align: center;
+}
+
 
 .btn-accept {
   margin-top: 25px;
@@ -206,6 +213,7 @@ footer {
   text-align: center;
   padding: 5px;
   font-family: 'Titan One', sans-serif;
+  height: 5vh;
 }
 
 h2 {
@@ -222,6 +230,36 @@ h4 {
   text-align: center;
   font-family: 'Courier New', Courier, monospace;
 }
+
+/*_________________api key__________________-*/
+
+.container-api-key, .container-all-chat, .container-all-description {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#api-key {
+  font-family: 'Titan One', sans-serif;
+  font-size: larger;
+  text-align: center;
+  color: #1F0441;
+  border-radius: 13px;
+  width: 75%;
+  max-width: 600px;
+  padding: 3px;
+  margin-top: 30vh;
+}
+
+::placeholder { 
+  color: #515151;
+}
+
+.btn-confirmar{
+  margin: 30px 0;
+}
+
 
 @media (max-width: 600px) {
   * {
@@ -285,7 +323,7 @@ h4 {
     flex-direction: column;
   }
 
-  ul {
+  .cards-home {
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -363,28 +401,26 @@ h4 {
 }
 
 .div-card{
-    font-family: 'Roboto Mono';
-    background-color: #FCAB10;
+    background-color: #c1c1c1;
     display: grid;
     width: 70vw;
-    max-width: 700px;
+    max-width: 45%;
     border-radius: 12px;
     margin: 2vw auto;
-    padding: 30px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 35% 65%;
-    row-gap: 40px;
+    padding: 2%;
+    font-size: 16px;
+    font-family: 'Roboto Mono', monospace;
+    overflow: auto;
 }
 
 .film-image {
-    width: 80%;
+    width: 90%;
     height: auto;
 }
 
 .list-description-short {
     height: 30%;
     text-align: justify;
-    padding: 10px;
     font-size: medium;
 }
 
@@ -398,121 +434,114 @@ h4 {
 }
 
 .name-movie-description{
-    font-size: larger;
-    padding-bottom: 5px;
+    font-size:20px;
 }
 
-.btn-regresar{
-    left: 11vw;
-}
 .btn-chat{
     top: -10%;
     left: 58vw;
 }
 
-/**Estilos viewAPI**/
-.btn-regresar-API{
-    bottom: 47vh;
-    left: 12vw;
-}
-
-.btn-confirmar{
-    top: 41vh;
-    left: 3vw;
-
-}
-#api-key {
-    font-family: 'Modak';
-    font-size: x-large;
-    text-align: center;
-    position: relative;
-    border-radius: 13px;
-    color: #7c7a7a;
-    top: 27vh;
-    left: 30vw;
-    width: 39vw;
-    height: 4vh;
-}
-
 /**Estilos viewBienvenida**/
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  align-items: center;
+  justify-content: center;
+}
+
 .bienvenida {
-    position: relative;
-    font-family: 'Modak';
-    text-align: center;
-    color: #fcab10;
-    font-size: 57px;
-    font-weight: 100;
-    top: 15vh;
+  font-family: 'Titan One', sans-serif;
+  color: #fcab10;
+  font-size: 24px;
+  font-weight: lighter;
 }
+
 .validacion {
-    margin-top: 14vh;
-    margin-bottom: 26vh;
-    position: absolute;
-    color: white;
-    font-size: xx-large;
-    text-align: center;
-    font-family: "Moulpali", sans-serif;
-    left: 32vw;
-}
-.ingreso .btn-regresar-bienvenida {
-    top: 28vh;
-    left: 42vw;
+  color: white;
+  font-size: 20px;
+  font-family: 'Roboto Mono', monospace;
+  margin: 2% 0 5% 0;
 }
 
 /**Estilos viewChat**/
 .btn-icon-enviar {
-    background-image: url(img/icons8-enviar-24.png);
-    position: relative;
-    width: 39px;
-    height: 20px;
-    left: 29vw;
-    top: -3vh;
+  background-image: url(img/icons8-enviar-24.png);
+  position: relative;
+  width: 39px;
+  height: 20px;
+  left: 29vw;
+  top: -3vh;
 }
 .contenedor-chat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #fcab10;
-    max-width: 800px;
-    height: 72vh;
-    border-radius: 2vh;
-    margin: 5vh auto;
-    padding-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #c1c1c1;
+  max-width: 800px;
+  height: 90%;
+  border-radius: 10px;
+  margin: 3vh auto;
 }
 .input-chat {
-    height: 7vh;
-    width: 90%;
-    background-color: #d9d9d9;
-    border-radius: 11px;
-    margin-top: 2vh;
+  height: 15%;
+  width: 90%;
+  background-color: #d9d9d9;
+  border-radius: 11px;
+  margin: 10px 0px;
+  border: 1px solid black;
 }
 .chat-image{
-    width: 32%;
-    height: auto;
-    margin-bottom: 2vh;
+  width: 32%;
+  height: auto;
+  margin-bottom: 2vh;
 }
-.btn-salir-chat {
-    width: 21vw;
-    left: 40vw;
-    top: -2vh;
-}
+
 .historial-chat {
-    height: 43vh;
-    width: 90%;
-    background-color: #d9d9d9;
-    border-radius: 16px;
-    border: 1px solid black;
+  height: 45%;
+  width: 90%;
+  background-color: #d9d9d9;
+  border-radius: 16px;
+  border: 1px solid black;
 }
+
+.div-img-chat-grupal {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1%;
+  align-content: flex-start;
+  justify-content: center;
+  height: 33%;
+}
+
 .div-img-chat-grupal > * {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    padding: 1px;
-    /**margin: -1vh 1vw 1vh 1vw;**/
-    margin:1vh;
-    
-    padding-top: 0vh;
+  border-radius: 50%;
+  width: 6%;
+  height: 30%;
+  object-fit: cover;
+  margin-right: 0.5%;
+  border: 1px solid white;
+  margin-bottom: 1%;
 }
+
 .div-img-chat-grupal > *:hover{
-    transform: scale(1.1); 
+  transform: scale(1.1); 
+}
+
+.description, .year-movie-description  {
+  margin-top: 5%;
+}
+
+.movie-description-short {
+  text-align: center;
+  margin: auto 30px;
+}
+
+.div-botones {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  justify-content: space-evenly;
+  margin-bottom: 1%;
 }
