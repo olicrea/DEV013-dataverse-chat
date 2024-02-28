@@ -8,21 +8,25 @@ export const viewAPIKey = () =>{
   const header = headerComponent();
   root.appendChild(header);
 
+  const div = document.createElement("div");
+  div.className = "container-api-key";
+  root.appendChild(div);
+
   const label =document.createElement("label");
   label.setAttribute("for", "api-key");
-  root.appendChild(label);
+  div.appendChild(label);
 
   const input = document.createElement("input");
   input.id = "api-key";
   input.type = "text";
   input.value = "";
   input.placeholder = "Ingresa tu API Key";
-  root.appendChild(input);
+  div.appendChild(input);
 
   const btnConfirmar = document.createElement("button");
   btnConfirmar.className = "btn btn-confirmar";
   btnConfirmar.textContent = "Confirmar"; // Agregar texto al botón
-  root.appendChild(btnConfirmar);
+  div.appendChild(btnConfirmar);
   btnConfirmar.addEventListener("click", () => {
     // Validar API. Si es correcta, dirigir a la vista de bienvenida. Sino, mostrar elemento con API errónea
     navigateTo(`/confirmar`);
@@ -30,7 +34,7 @@ export const viewAPIKey = () =>{
   
 
   const botonRegresar = btnRegresar();
-  root.appendChild(botonRegresar);
+  div.appendChild(botonRegresar);
   botonRegresar.addEventListener("click", () => {
     navigateTo(`/`)
   })

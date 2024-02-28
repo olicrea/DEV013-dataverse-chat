@@ -12,9 +12,13 @@ export const viewChats = (cardActual) =>{
   const header = headerComponent();
   root.appendChild(header);
 
+  const div = document.createElement("div");
+  div.className = "container-all-chat";
+  root.appendChild(div);
+
   const contenedorChat = document.createElement("div")
   contenedorChat.className = "contenedor-chat"
-  root.appendChild(contenedorChat);
+  div.appendChild(contenedorChat);
 
   if(!Array.isArray(cardActual)){
     const filmImage = document.createElement("img");
@@ -31,8 +35,8 @@ export const viewChats = (cardActual) =>{
       filmImage.src = film.imageUrl;
       filmImage.alt = `Imagen de la película ${film.name}`;
       divImageChatGrupal.appendChild(filmImage);
+      contenedorChat.appendChild(divImageChatGrupal);
     });
-    contenedorChat.appendChild(divImageChatGrupal);
   }
 
   const historialChat = document.createElement("div");
@@ -54,11 +58,10 @@ export const viewChats = (cardActual) =>{
   const btnSalirChat = document.createElement("button");
   btnSalirChat.className = "btn btn-salir-chat";
   btnSalirChat.textContent="Salir del Chat";
-  root.appendChild(btnSalirChat);
+  div.appendChild(btnSalirChat);
 
   const footer =footerComponent();
   root.appendChild(footer);
 
   return root
-
 }
