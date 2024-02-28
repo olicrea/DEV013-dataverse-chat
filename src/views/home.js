@@ -21,7 +21,8 @@ export const home = () => {
   cards.forEach((card) => {
     card.addEventListener("click", () => {
       const cardId = card.getAttribute("id");
-      navigateTo(`/description/${card.id}`, cardId);
+      navigateTo(`/description`, { name: cardId } );
+      //cards.addEventListener('click', () => navigateTo("/about", { name: cardId }))
     });
   });
 
@@ -44,6 +45,7 @@ export const renderItems = (data) => {
   });
 
   const filmsList = document.createElement("ul");
+  filmsList.className = "cards-home";
   filmsList.innerHTML = html;
 
   return filmsList;
