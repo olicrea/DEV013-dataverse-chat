@@ -2,9 +2,11 @@ import { headerComponent } from "./../components/header.js";
 import { footerComponent } from "./../components/footer.js";
 import { btnRegresar } from "../components/btnRegresar.js";
 import { navigateTo } from "./../router.js";
-export const viewAPIKey = () =>{
+import { setApiKey } from "./../lib/apiKeyFunction.js";
+
+export const viewAPIKey = () => {
   const root = document.createElement("div")
-  
+
   const header = headerComponent();
   root.appendChild(header);
 
@@ -12,16 +14,18 @@ export const viewAPIKey = () =>{
   div.className = "container-api-key";
   root.appendChild(div);
 
-  const label =document.createElement("label");
+  const label = document.createElement("label");
   label.setAttribute("for", "api-key");
   div.appendChild(label);
 
+  const divInput = document.createElement("div");
+  div.appendChild(divInput);
   const input = document.createElement("input");
   input.id = "api-key";
   input.type = "text";
   input.value = "";
   input.placeholder = "Ingresa tu API Key";
-  div.appendChild(input);
+  divInput.appendChild(input);
 
   const btnConfirmar = document.createElement("button");
   btnConfirmar.className = "btn btn-confirmar";
@@ -29,9 +33,20 @@ export const viewAPIKey = () =>{
   div.appendChild(btnConfirmar);
   btnConfirmar.addEventListener("click", () => {
     // Validar API. Si es correcta, dirigir a la vista de bienvenida. Sino, mostrar elemento con API errónea
-    navigateTo(`/confirmar`);
+    const apiKey = input.value;
+    if (apiKey) {
+      setApiKey(apiKey);
+      navigateTo(`/confirmar`);
+    } else {
+      errorElement.textContent = "*Campo obligatorio";
+      errorElement.classList.add("required"); 
+      divInput.appendChild(errorElement);
+    }
   });
-  
+
+  const errorElement = document.createElement("div");
+  errorElement.id = "error-message";
+  div.appendChild(errorElement);
 
   const botonRegresar = btnRegresar();
   div.appendChild(botonRegresar);
