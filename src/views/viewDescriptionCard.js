@@ -2,14 +2,13 @@ import { headerComponent } from "./../components/header.js";
 import { data } from "./../data/dataset.js";
 import { footerComponent } from "./../components/footer.js";
 import { btnRegresar } from "../components/btnRegresar.js";
-import { btnChat } from "../components/btnChat.js";
 import { navigateTo } from "./../router.js";
 //cardId es un parámetro que se envía desde el home en el escuchador de click de las tarjetitas, este corresponde al id de la tarjeta clickeada 
 export const viewDescriptionCard = (cardId) => {
-  console.log("card id: "+ cardId)
+  console.log("card id: " + cardId)
 
   //se extrae del array de objetos, data, el elemento que coincida se pasará a las funciones de renderizado 
-  const cardActual = data.find((card) => card.id === cardId.name); 
+  const cardActual = data.find((card) => card.id === cardId.name);
   console.log("card array: ", cardActual);
   const root = document.createElement("div");
 
@@ -40,8 +39,13 @@ export const viewDescriptionCard = (cardId) => {
   const botonRegresar = btnRegresar();
   divBotones.appendChild(botonRegresar)
 
-  const botonChat = btnChat();
-  divBotones.appendChild(botonChat);
+  const btnChat = document.createElement("button");
+  btnChat.className = "btn btn-chat";
+
+  const textBoton = document.createTextNode("Chatear");
+  btnChat.appendChild(textBoton);
+
+  divBotones.appendChild(btnChat);
 
   const footer = footerComponent();
   root.appendChild(footer);
@@ -51,15 +55,15 @@ export const viewDescriptionCard = (cardId) => {
     navigateTo(`/`)
   });
   //const btnChatgrupal = document.querySelector(".btn-chat-grupal");
-  botonChat.addEventListener("click", () => {
+  btnChat.addEventListener("click", () => {
     //const filmId = card 
-    navigateTo(`/chats`, {name:cardActual.id});
+    navigateTo(`/chats`, { name: cardActual.id });
   });
   //console.log(root)
-  return root 
+  return root
 };
 
-function createImg(film){
+function createImg(film) {
   //console.log(film)
   const filmImage = document.createElement("img");
   filmImage.className = "film-image";
@@ -68,7 +72,7 @@ function createImg(film){
   return filmImage;
 }
 
-function descriptionCard(film){
+function descriptionCard(film) {
   const descriptionCardHTML = document.createElement("ul");
   descriptionCardHTML.className = "list-description-short"
   const html = ` 
