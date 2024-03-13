@@ -95,5 +95,5 @@ export const onURLChange = () => {
   // render the view with the pathname and object
   renderView(pathname, searchObject);
 } 
-//window.onpopstate = onURLChange;
+window.onpopstate = onURLChange;
 window.addEventListener("popstate", onURLChange);
