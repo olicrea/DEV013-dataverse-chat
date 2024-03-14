@@ -10,28 +10,33 @@ export const viewBienvenida = () =>{
   const header = headerComponent();
   root.appendChild(header);
 
+  const div = document.createElement("div");
+  div.className="contenedor";
+  root.appendChild(div);
+
   const bienvenida = document.createElement("h1");
   bienvenida.className="bienvenida"
   bienvenida.textContent="Bienvenida";
-  root.appendChild(bienvenida)
+  div.appendChild(bienvenida)
 
   const validacionTrue = document.createElement("h2");
   validacionTrue.className="validacion validacion-correcta";
   validacionTrue.textContent="API Key ingresada con éxito";
-  root.appendChild(validacionTrue);
+  div.appendChild(validacionTrue);
 
   const validacionFalse = document.createElement("h2");
   validacionFalse.className="validacion validacion-false"
   validacionFalse.textContent="API Key incorrecta"
 
   const botonRegresar = btnRegresar();
-  root.appendChild(botonRegresar);
+  botonRegresar.className = "btn btn-regresar-bienvenida";
+  div.appendChild(botonRegresar);
   botonRegresar.addEventListener("click", () => {
     navigateTo(`/`)
   })
 
   const footer = footerComponent();
   root.appendChild(footer);
-
+  
   return root  
 }

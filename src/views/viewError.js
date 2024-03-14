@@ -22,8 +22,7 @@ export const viewError = () => {
   acceptButton.className = "btn-accept"
   acceptButton.addEventListener("click", () => {
     navigateTo(`/`)
-
-});
+  });
 
   errorBox.appendChild(acceptButton);
 
