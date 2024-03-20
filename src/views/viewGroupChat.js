@@ -69,7 +69,7 @@ export const viewGroupChat = () => {
     pQuestion.innerHTML = "";
     pAnswer.innerHTML = "";
 
-    // Llamada a la API de OpenAI para cada película en data
+    // Llamada a la API de OpenAI para cada película en data 
     data.forEach((card) => {
       communicateWithOpenAI(textareaMessage, card)
         .then((response) => response.json())
