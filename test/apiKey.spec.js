@@ -1,4 +1,4 @@
-import { getApiKey, setApiKey } from "../src/lib/apiKeyFunction";
+import { getApiKey, setApiKey } from "../src/lib/apiKeyFunction.js";
 
 describe('getApiKey', () => {
   
@@ -7,7 +7,7 @@ describe('getApiKey', () => {
     const key = "key-key";
     localStorage.setItem('apiKey', key);
     //console.log(getApiKey() === "key-key");
-    expect(getApiKey()).toBe("key-key");
+    expect(getApiKey()).toBe(key);
   });
 });
 

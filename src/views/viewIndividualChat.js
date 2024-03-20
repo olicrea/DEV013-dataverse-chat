@@ -9,6 +9,9 @@ export const viewIndividualChat = (cardId) => {
 
   //Encontrar los datos de la tarjeta actual
   const cardActual = data.find((card) => card.id === cardId.name);
+  const cardName = data.find((card) => card.name);
+  console.log(cardName);
+
   
   //console.log("card actual", cardActual);
   //console.log("cardId", cardId);
@@ -33,6 +36,11 @@ export const viewIndividualChat = (cardId) => {
   filmImage.src = cardActual.imageUrl;
   filmImage.alt = `Imagen de la película ${cardId.name}`;
   containerChat.appendChild(filmImage);
+
+  const descriptionCardId = document.createElement("p");
+  descriptionCardId.className = "description-card";
+  descriptionCardId.innerHTML = `${cardId.name}`
+  containerChat.appendChild(descriptionCardId);
 
   //Crear div que contendrá el historial del chat con preguntas y respuestas
   const recordChat = document.createElement("div");
