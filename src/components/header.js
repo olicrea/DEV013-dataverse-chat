@@ -1,4 +1,7 @@
 import { navigateTo } from "./../router.js"
+// import { renderMovieData } from "./../menuSelects.js";
+// import { renderItems, renderItemsStadistics } from "./renderFunctions.js";
+
 // Aquí deben estar: 
 // - btnChatgrupal
 // - btnAPIkey
@@ -7,7 +10,7 @@ import { navigateTo } from "./../router.js"
 export const headerComponent = () => {
   const header = document.createElement("header");
   header.innerHTML = `
-    <h1 class="btn-home"> MovieDev</h1>
+    <h1 class="btn-home">MovieDev</h1>
     <div class="button-container">
         <button class="open-menu">
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="25" viewBox="0 0 24 24">
@@ -24,6 +27,7 @@ export const headerComponent = () => {
   document.body.appendChild(header);
 
   const btnRegresar = document.querySelector(".btn-home");
+  console.log(btnRegresar);
   btnRegresar.addEventListener("click", () => {
     navigateTo(`/`)
   });
@@ -37,5 +41,6 @@ export const headerComponent = () => {
   btnChatgrupal.addEventListener("click", () => {
     navigateTo(`/groupChats`);
   });
+
   return header;
 };
