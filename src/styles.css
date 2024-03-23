@@ -123,6 +123,13 @@ img {
   cursor: pointer;
 }
 
+.chat-image-circle {
+  height: 6vw;
+  width: 6vw;
+  border-radius: 50%;
+  margin: 4%;
+}
+
 .cards-home {
   display: flex;
   flex-wrap: wrap;
@@ -327,7 +334,7 @@ h4 {
 .question, .answer {
   font-family: 'Roboto Mono', monospace;
   width: 95%;
-  background-color: #d9d9d9;
+  background-color: whitesmoke;
   border-radius: 11px;
   margin: 10px 0px;
   border: 1px solid black;
@@ -337,7 +344,7 @@ h4 {
 
 .question {
   text-align: right;
-  background-color: whitesmoke;
+  background-color: #f7e38c;
 }
 
 .record-chat {
@@ -451,19 +458,21 @@ padding: 10px;
 }
 
 .imgs-group {
-background-color: #0CE3E8;
-width: 20%;
-height: 80%;
-display: flex;
-flex-direction: column;
-border-radius: 10px;
-padding: 20px;
+  background-color: #0CE3E8;
+  width: 20%;
+  height: 95%;
+  display: flex;
+  border-radius: 10px;
+  padding: 15px;
+  overflow: auto;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .image-and-description {
 background-color: #0CE3E8;
 max-width: 185px;
-max-height: 248px;
+max-height: 290px;
 display: flex;
 flex-direction: column;
 justify-content: center;
