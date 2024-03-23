@@ -95,5 +95,10 @@ export const onURLChange = () => {
   // render the view with the pathname and object
   renderView(pathname, searchObject);
 } 
+
+export const navigateBack = () => {
+  window.history.back(); // Utiliza la función back() del objeto window.history para retroceder en la historia del navegador
+};
+
 window.onpopstate = onURLChange;
 window.addEventListener("popstate", onURLChange);

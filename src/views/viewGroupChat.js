@@ -2,7 +2,9 @@ import { headerComponent } from "../components/header.js";
 import { data } from "../data/dataset.js";
 import { footerComponent } from "../components/footer.js";
 import { communicateWithOpenAI } from "../lib/openAIApi.js";
-import { btnRegresar } from "../components/btnRegresar.js";
+//import { btnRegresar } from "../components/btnRegresar.js";
+import { btnHistoryBack } from "../components/btnSalirdelChat.js";
+
 import { navigateTo } from "../router.js";
 
 export const viewGroupChat = () => {
@@ -21,6 +23,10 @@ export const viewGroupChat = () => {
   containerChat.className = "container-chat";
   div.appendChild(containerChat);
 
+  const imgsGroup = document.createElement("div");
+  imgsGroup.className = "imgs-group";
+  div.appendChild(imgsGroup); 
+
   //Crear div que contendrá el historial del chat con preguntas y respuestas
   const recordChat = document.createElement("div");
   recordChat.className = "record-chat";
@@ -29,12 +35,10 @@ export const viewGroupChat = () => {
   //párrafo para reflejar pregunta en el historial
   const pQuestion = document.createElement("p");
   pQuestion.className = "question";
-  recordChat.appendChild(pQuestion);
 
   //párrafo para reflejar respuesta en el historial
   const pAnswer = document.createElement("p");
   pAnswer.className = "answer";
-  recordChat.appendChild(pAnswer);
 
   //Crear el espacio para que el usuario pregunte. Form:crea formulario - label: le da la etiqueta - textarea: crea el campo
   const form = document.createElement("form");
@@ -88,9 +92,13 @@ export const viewGroupChat = () => {
     });
   });
 
+  const divBack = document.createElement("div");
+  divBack.className = "container-btn-back"
+  root.appendChild(divBack);
+
   //Crear un botón para salir del chat y volver a home
-  const btnExitChat = btnRegresar();
-  div.appendChild(btnExitChat);
+  const btnExitChat = btnHistoryBack();
+  divBack.appendChild(btnExitChat);
   btnExitChat.addEventListener("click", () => {
     navigateTo(`/`)
   })

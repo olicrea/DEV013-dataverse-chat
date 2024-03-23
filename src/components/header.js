@@ -29,7 +29,7 @@ export const headerComponent = () => {
   const btnRegresar = document.querySelector(".btn-home");
   console.log(btnRegresar);
   btnRegresar.addEventListener("click", () => {
-    navigateTo(`/`)
+    navigateTo("/");
   });
   
   const btnAPIkey = document.querySelector(".btn-api");
