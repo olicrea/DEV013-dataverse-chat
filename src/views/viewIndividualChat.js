@@ -2,19 +2,14 @@ import { headerComponent } from "./../components/header.js";
 import { data } from "./../data/dataset.js";
 import { footerComponent } from "./../components/footer.js";
 import { communicateWithOpenAI } from "../lib/openAIApi.js";
-import { btnRegresar } from "../components/btnRegresar.js";
+//import { btnRegresar } from "../components/btnRegresar.js";
+import { btnHistoryBack } from "../components/btnSalirdelChat.js";
 import { navigateTo } from "../router.js";
 
 export const viewIndividualChat = (cardId) => {
 
   //Encontrar los datos de la tarjeta actual
   const cardActual = data.find((card) => card.id === cardId.name);
-  const cardName = data.find((card) => card.name);
-  console.log(cardName);
-
-  
-  //console.log("card actual", cardActual);
-  //console.log("cardId", cardId);
 
   //Crear contenedor raíz y agregarle header
   const root = document.createElement("div");
@@ -27,20 +22,36 @@ export const viewIndividualChat = (cardId) => {
 
   //Crear el contenedor del chat
   const containerChat = document.createElement("div");
-  containerChat.className = "container-chat"; 
+  containerChat.className = "container-chat";
   div.appendChild(containerChat);
+
+  //Crear un nuevo div para la imagen y la descripción
+  const imageAndDescription = document.createElement("div");
+  imageAndDescription.className = "image-and-description";
+  div.appendChild(imageAndDescription);
 
   //Crear la imagen de la película
   const filmImage = document.createElement("img");
   filmImage.className = "chat-image";
   filmImage.src = cardActual.imageUrl;
   filmImage.alt = `Imagen de la película ${cardId.name}`;
-  containerChat.appendChild(filmImage);
+  imageAndDescription.appendChild(filmImage);
+
+  //Crear un nuevo div para la descripción
+  const descriptionDiv = document.createElement("div");
+  descriptionDiv.className = "description-div";
+  imageAndDescription.appendChild(descriptionDiv);
 
   const descriptionCardId = document.createElement("p");
-  descriptionCardId.className = "description-card";
-  descriptionCardId.innerHTML = `${cardId.name}`
-  containerChat.appendChild(descriptionCardId);
+  descriptionCardId.className = "name-movie-description";
+  descriptionCardId.innerHTML = `${cardActual.name}`
+  descriptionDiv.appendChild(descriptionCardId); 
+
+  //Crear un segundo párrafo para la descripción corta
+  const shortDescription = document.createElement("p");
+  shortDescription.className = "short-description";
+  shortDescription.innerHTML = `${cardActual.shortDescription}`;
+  descriptionDiv.appendChild(shortDescription);
 
   //Crear div que contendrá el historial del chat con preguntas y respuestas
   const recordChat = document.createElement("div");
@@ -50,13 +61,10 @@ export const viewIndividualChat = (cardId) => {
   //párrafo para reflejar pregunta en el historial
   const pQuestion = document.createElement("p");
   pQuestion.className = "question";
-  recordChat.appendChild(pQuestion);
 
   //párrafo para reflejar respuesta en el historial
   const pAnswer = document.createElement("p");
   pAnswer.className = "answer";
-  recordChat.appendChild(pAnswer);
-
 
   //Crear el espacio para que el usuario pregunte. Form:crea formulario - label: le da la etiqueta - textarea: crea el campo
   const form = document.createElement("form");
@@ -71,43 +79,56 @@ export const viewIndividualChat = (cardId) => {
   const textarea = document.createElement("textarea");
   textarea.className = "input-chat";
   textarea.id = "chat";
-  textarea.placeholder = `Escríbele a ${cardId.name}...`;
+  textarea.placeholder = `Escríbele a ${cardActual.name}...`;
   form.appendChild(textarea);
 
   //Crear un botón para enviar pregunta
   const submitButton = document.createElement("input");
-  submitButton.className = "btn icon-submit"; 
+  submitButton.className = "btn icon-submit";
   submitButton.type = "submit";
   submitButton.id = "icon-submit";
-  submitButton.textContent = "Enviar";
+  submitButton.value = "Enviar";
   form.appendChild(submitButton);
 
   //Agregar el evento al darle click a enviar la pregunta
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-    //pQuestion.innerHTML += textarea.value + "<br>";
-    pQuestion.innerHTML = textarea.value;
+
+    const questionDiv = document.createElement("div");
+    questionDiv.className = "question";
+    questionDiv.textContent = textarea.value;
+    recordChat.appendChild(questionDiv);
 
     // Llamada a la API de OpenAI
     communicateWithOpenAI(textarea.value, cardId)
       .then(response => response.json())
       .then(data => {
-        pAnswer.innerHTML = data.choices[0].message.content;
+        const answerDiv = document.createElement("div");
+        answerDiv.className = "answer";
+        answerDiv.textContent = data.choices[0].message.content;
+        recordChat.appendChild(answerDiv);
       })
       .catch(error => {
         console.log(error);
-        pAnswer.innerHTML = "Error al obtener respuesta de la IA";
-        textarea.value = "";
+        const errorDiv = document.createElement("div");
+        errorDiv.className = "answer";
+        errorDiv.textContent = "Error al obtener respuesta de la IA. Considera reingresar tus credenciales en el apartado: API Key.";
+        recordChat.appendChild(errorDiv);
       })
       .finally(() => {
+        recordChat.scrollTop = recordChat.scrollHeight;
         // Vaciar el textarea después de procesar la respuesta de la API
         textarea.value = "";
       });
   });
 
+  const divBack = document.createElement("div");
+  divBack.className = "container-btn-back"
+  root.appendChild(divBack);
+
   //Crear un botón para salir del chat y volver a home
-  const btnExitChat = btnRegresar();
-  div.appendChild(btnExitChat);
+  const btnExitChat = btnHistoryBack();
+  divBack.appendChild(btnExitChat);
   btnExitChat.addEventListener("click", () => {
     navigateTo(`/`)
   })
