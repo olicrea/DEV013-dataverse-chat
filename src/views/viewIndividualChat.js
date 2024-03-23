@@ -96,7 +96,7 @@ export const viewIndividualChat = (cardId) => {
 
     const questionDiv = document.createElement("div");
     questionDiv.className = "question";
-    questionDiv.textContent = textarea.value;
+    questionDiv.innerHTML = `<strong>Tu:</strong> ${textarea.value}`;
     recordChat.appendChild(questionDiv);
 
     // Llamada a la API de OpenAI
@@ -105,7 +105,7 @@ export const viewIndividualChat = (cardId) => {
       .then(data => {
         const answerDiv = document.createElement("div");
         answerDiv.className = "answer";
-        answerDiv.textContent = data.choices[0].message.content;
+        answerDiv.innerHTML = `<strong>${cardActual.name}:</strong> ${data.choices[0].message.content}`;
         recordChat.appendChild(answerDiv);
       })
       .catch(error => {

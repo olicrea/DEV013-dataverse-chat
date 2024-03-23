@@ -25,7 +25,15 @@ export const viewGroupChat = () => {
 
   const imgsGroup = document.createElement("div");
   imgsGroup.className = "imgs-group";
-  div.appendChild(imgsGroup); 
+  div.appendChild(imgsGroup);
+  data.forEach((film) => {
+    const filmImage = document.createElement("img");
+    filmImage.className = "chat-image-circle";
+    filmImage.src = film.imageUrl;
+    filmImage.alt = `Imagen de la película ${film.name}`;
+    filmImage.title = film.name;
+    imgsGroup.appendChild(filmImage);
+  });
 
   //Crear div que contendrá el historial del chat con preguntas y respuestas
   const recordChat = document.createElement("div");
@@ -61,7 +69,7 @@ export const viewGroupChat = () => {
   submitButton.className = "btn icon-submit";
   submitButton.type = "submit";
   submitButton.id = "icon-submit";
-  submitButton.textContent = "Enviar";
+  submitButton.value = "Enviar";
   form.appendChild(submitButton);
 
   //Agregar el evento al darle click a enviar la pregunta
@@ -69,21 +77,34 @@ export const viewGroupChat = () => {
     event.preventDefault();
     const textareaMessage = textarea.value;
 
-    // Limpiar el historial de preguntas y respuestas
-    pQuestion.innerHTML = "";
-    pAnswer.innerHTML = "";
+    const questionDiv = document.createElement("div");
+    questionDiv.className = "question";
+    questionDiv.innerHTML= `<strong>Tu:</strong> ${textarea.value}`;
+    recordChat.appendChild(questionDiv);
 
+    // Limpiar el historial de preguntas y respuestas
+    // pQuestion.innerHTML = "";
+    // pAnswer.innerHTML = "";
+
+    recordChat.scrollTop = recordChat.scrollHeight;
     // Llamada a la API de OpenAI para cada película en data 
     data.forEach((card) => {
       communicateWithOpenAI(textareaMessage, card)
         .then((response) => response.json())
         .then((data) => {
+          const answerDiv = document.createElement("div");
+          answerDiv.className = "answer";
+          answerDiv.innerHTML += `<strong>${card.name}:</strong> ${data.choices[0].message.content}`;
+          recordChat.appendChild(answerDiv);          
           pQuestion.innerHTML = `${textareaMessage}`;
-          pAnswer.innerHTML += `${card.name}:<br>${data.choices[0].message.content}<br>`;
         })
         .catch((error) => {
           console.log(error);
-          pAnswer.innerHTML += "Error al obtener respuesta de la IA<br>";
+          const errorDiv = document.createElement("div");
+          errorDiv.className = "answer";
+          errorDiv.textContent = "Error al obtener respuesta de la IA. Considera reingresar tus credenciales en el apartado: API Key.";
+          recordChat.appendChild(errorDiv);
+          // pAnswer.innerHTML += "Error al obtener respuesta de la IA<br>";
         })
         .finally(() => {
           // Vaciar el textarea después de procesar la respuesta de la API
