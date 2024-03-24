@@ -1,6 +1,6 @@
 import { headerComponent } from "./../components/header.js";
 import { footerComponent } from "./../components/footer.js";
-import { btnRegresar } from "../components/btnRegresar.js";
+import { btnHistoryBack } from "../components/btnSalirdelChat.js";
 import { navigateTo } from "./../router.js";
 import { setApiKey } from "./../lib/apiKeyFunction.js";
 
@@ -48,10 +48,9 @@ export const viewAPIKey = () => {
   errorElement.id = "error-message";
   div.appendChild(errorElement);
 
-  const botonRegresar = btnRegresar();
-  div.appendChild(botonRegresar);
-  botonRegresar.addEventListener("click", () => {
-    navigateTo(`/`)
+  const btnExitChat = btnHistoryBack();
+  div.appendChild(btnExitChat);
+  btnExitChat.addEventListener("click", () => {
   })
 
   const footer = footerComponent();

@@ -79,7 +79,7 @@ export const viewGroupChat = () => {
 
     const questionDiv = document.createElement("div");
     questionDiv.className = "question";
-    questionDiv.innerHTML= `<strong>Tu:</strong> ${textarea.value}`;
+    questionDiv.innerHTML = `<strong>Tu:</strong> ${textarea.value}`;
     recordChat.appendChild(questionDiv);
 
     // Limpiar el historial de preguntas y respuestas
@@ -87,6 +87,7 @@ export const viewGroupChat = () => {
     // pAnswer.innerHTML = "";
 
     recordChat.scrollTop = recordChat.scrollHeight;
+    let errorDisplayed = false;
     // Llamada a la API de OpenAI para cada película en data 
     data.forEach((card) => {
       communicateWithOpenAI(textareaMessage, card)
@@ -95,15 +96,20 @@ export const viewGroupChat = () => {
           const answerDiv = document.createElement("div");
           answerDiv.className = "answer";
           answerDiv.innerHTML += `<strong>${card.name}:</strong> ${data.choices[0].message.content}`;
-          recordChat.appendChild(answerDiv);          
+          recordChat.appendChild(answerDiv);
           pQuestion.innerHTML = `${textareaMessage}`;
         })
         .catch((error) => {
-          console.log(error);
-          const errorDiv = document.createElement("div");
-          errorDiv.className = "answer";
-          errorDiv.textContent = "Error al obtener respuesta de la IA. Considera reingresar tus credenciales en el apartado: API Key.";
-          recordChat.appendChild(errorDiv);
+          if (!errorDisplayed) {
+            console.log(error);
+            const errorDiv = document.createElement("div");
+            errorDiv.className = "answer";
+            errorDiv.textContent = "Error al obtener respuesta de la IA. Considera reingresar tus credenciales en el apartado: API Key.";
+            errorDiv.style.fontWeight = "bold";
+            errorDiv.style.color = "red";
+            recordChat.appendChild(errorDiv);
+            errorDisplayed = true;
+          }
           // pAnswer.innerHTML += "Error al obtener respuesta de la IA<br>";
         })
         .finally(() => {
@@ -117,11 +123,10 @@ export const viewGroupChat = () => {
   divBack.className = "container-btn-back"
   root.appendChild(divBack);
 
-  //Crear un botón para salir del chat y volver a home
+  //Crear un botón para salir del chat e ir atrás
   const btnExitChat = btnHistoryBack();
   divBack.appendChild(btnExitChat);
   btnExitChat.addEventListener("click", () => {
-    navigateTo(`/`)
   })
 
   //Agregar footer al contenedor raíz

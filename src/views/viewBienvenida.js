@@ -1,6 +1,6 @@
 import { headerComponent } from "./../components/header.js";
 import { footerComponent } from "./../components/footer.js";
-import { btnRegresar } from "../components/btnRegresar.js";
+import { btnHistoryBack } from "../components/btnSalirdelChat.js";
 import { navigateTo } from "./../router.js";
 
 export const viewBienvenida = () =>{
@@ -28,11 +28,10 @@ export const viewBienvenida = () =>{
   validacionFalse.className="validacion validacion-false"
   validacionFalse.textContent="API Key incorrecta"
 
-  const botonRegresar = btnRegresar();
-  botonRegresar.className = "btn btn-regresar-bienvenida";
-  div.appendChild(botonRegresar);
-  botonRegresar.addEventListener("click", () => {
-    navigateTo(`/`)
+  const btnExitChat = btnHistoryBack();
+  div.appendChild(btnExitChat);
+  btnExitChat.addEventListener("click", () => {
+    window.history.back();
   })
 
   const footer = footerComponent();

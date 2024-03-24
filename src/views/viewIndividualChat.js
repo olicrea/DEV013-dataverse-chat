@@ -113,6 +113,8 @@ export const viewIndividualChat = (cardId) => {
         const errorDiv = document.createElement("div");
         errorDiv.className = "answer";
         errorDiv.textContent = "Error al obtener respuesta de la IA. Considera reingresar tus credenciales en el apartado: API Key.";
+        errorDiv.style.fontWeight = "bold";
+        errorDiv.style.color = "red";
         recordChat.appendChild(errorDiv);
       })
       .finally(() => {
@@ -130,7 +132,6 @@ export const viewIndividualChat = (cardId) => {
   const btnExitChat = btnHistoryBack();
   divBack.appendChild(btnExitChat);
   btnExitChat.addEventListener("click", () => {
-    navigateTo(`/`)
   })
 
   //Agregar footer al contenedor raíz
