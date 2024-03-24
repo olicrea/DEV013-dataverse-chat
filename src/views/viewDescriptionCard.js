@@ -58,6 +58,12 @@ export const viewDescriptionCard = (cardId) => {
   btnChat.addEventListener("click", () => {
     //const filmId = card 
     navigateTo(`/chats`, { name: cardActual.id });
+
+    const hamburguerMenu = document.querySelector(".hamburguer");
+    if (hamburguerMenu) {
+      hamburguerMenu.style.display = "none";
+    }
+
   });
   //console.log(root)
   return root

@@ -30,8 +30,9 @@ export const renderItems = (data) => {
 
 export const renderItemsStadistics = (data, title, percent) => {
   let html = "";
+  html = `<h2>${title} <br>Estas Películas Representan el ${percent}% de la web</h2>`;
   data.forEach(function (film) {
-    html += `
+    html += ` 
               <li class="cards" itemscope itemtype="movie">
               <dl>
                 <img src="${film.imageUrl}" alt=${film.name} />
@@ -44,10 +45,8 @@ export const renderItemsStadistics = (data, title, percent) => {
               </li>`;
   });
 
-  html = `<h2>${title}</h2>
-          <h4>Estas Películas Representan el ${percent}% de la web</h4> 
-            <ul>${html}</ul>`;
   const ulElement = document.createElement("ul");
+  ulElement.className = "cards-home";
   ulElement.innerHTML = html;
 
   return ulElement;
@@ -88,13 +87,18 @@ export const home = () => {
   const viewHeader = headerComponent();
   root.appendChild(viewHeader);
 
-  const menuSelects = selectsComponent();
-  menuSelects.style.display = "none"; 
-  root.appendChild(menuSelects);
-
   const container = document.createElement("div");
   container.className="container-cards"
   root.appendChild(container);
+
+  const menuSelects = selectsComponent();
+  menuSelects.style.display = "none"; 
+  container.appendChild(menuSelects);
+
+  const hamburguerMenu = viewHeader.querySelector(".hamburguer");
+  hamburguerMenu.addEventListener("click", () => {
+    menuSelects.style.display = menuSelects.style.display === "none" ? "block" : "none";
+  });
 
   let orderData = [];
   if(orderData.length === 0){
@@ -102,7 +106,6 @@ export const home = () => {
   }
 
   let viewCards;
-
 
   const selectFilter = menuSelects.querySelector("#genre");
   const selectElementAlfa = menuSelects.querySelector("#alfa");
@@ -197,6 +200,12 @@ export const home = () => {
     card.addEventListener("click", () => {
       const cardId = card.getAttribute("id");
       navigateTo(`/description`, { name: cardId });
+
+      const hamburguerMenu = document.querySelector(".hamburguer");
+      if (hamburguerMenu) {
+        hamburguerMenu.style.display = "none";
+      }
+
     });
   });
 
