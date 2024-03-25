@@ -1,8 +1,8 @@
 import { headerComponent } from "./../components/header.js";
 import { data } from "./../data/dataset.js";
+import { filterData, sortData, computeStatsScore, computeStats } from "./../lib/dataFunctions.js";
 import { footerComponent } from "./../components/footer.js";
 import { navigateTo } from "../router.js";
-import { filterData, sortData, computeStatsScore, computeStats } from "./../lib/dataFunctions.js";
 import { selectsComponent } from "./../components/menuSelects.js";
 
 //renderizado general

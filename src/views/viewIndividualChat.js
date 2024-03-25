@@ -4,7 +4,6 @@ import { footerComponent } from "./../components/footer.js";
 import { communicateWithOpenAI } from "../lib/openAIApi.js";
 //import { btnRegresar } from "../components/btnRegresar.js";
 import { btnHistoryBack } from "../components/btnSalirdelChat.js";
-import { navigateTo } from "../router.js";
 
 export const viewIndividualChat = (cardId) => {
 
