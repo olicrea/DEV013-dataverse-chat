@@ -312,7 +312,7 @@ h4 {
 }
 
 .input-chat {
-  width: 480px;
+  width: 350px;
   font-family: 'Roboto Mono', monospace;
   padding: 9px;
   font-size: 14px;
@@ -472,6 +472,7 @@ padding: 20px;
 text-align: center;
 font-size: 12px;
 font-family: 'Roboto Mono', monospace;
+margin-right: 10px;
 }
 
 .chat-image{
@@ -545,6 +546,77 @@ margin-bottom: 1%;
   margin-top: 15vh;
   height: 50vh;
   width: 200px;
+}
+
+@media (max-width: 600px) {
+
+  .inputs {
+    padding: 10px;
+    font-size: 10px;
+    height: 40vh;
+    width: 180px;
+  }
+
+  select {
+    width: 160px;
+    font-size: 12px;
+    color: white;
+    margin-bottom: 3%;
+  }
+
+  #btn {
+    padding: 1px;
+  }
+
+  .btn-chat-grupal,
+.btn-api, .btn-accept, .btn, .btn-salir-chat, .btn-icon-enviar {
+  padding: 1px;
+  font-size: 0.9rem;
+}
+
+header {
+  height: 60px;
+  font-size: 13px;
+}
+
+.hamburguer {
+  height: 18px;
+}
+
+.cards {
+  width: 175px;
+  padding: 12px;
+  margin: 5px;
+  font-size: 12px;
+}
+
+.name-movie {
+  font-size: 17px;
+}
+
+.year-movie {
+  font-size: 14px;
+}
+
+.image-and-description {
+  margin: 10px;
+}
+
+.container-container {
+  flex-direction: column-reverse;
+}
+
+.input-chat {
+  width: 200px;
+}
+
+.imgs-group {
+  margin: 10px;
+  width: 55%;
+  height: 25%;
+  flex-direction: row;
+}
+
 }
 
 /* .input {
