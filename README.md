@@ -9,38 +9,28 @@
 * [5. Consideraciones técnicas](#5-consideraciones-técnicas)
 * [6. Criterios de aceptación mínimos del proyecto](#6-criterios-de-aceptación-mínimos-del-proyecto)
 * [7. Objetivos de aprendizaje](#7-objetivos-de-aprendizaje)
-* [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
-* [9. Consideraciones para pedir tu Project Feedback](#9-consideraciones-para-pedir-tu-project-feedback)
+
 
 ***
 
 ## 1. Preámbulo
 
-En nuestro día a día, las aplicaciones web son como amigas
-inseparables. Desde las redes sociales hasta las herramientas de
-trabajo, las usamos todo el tiempo. Pero lo que hace que este
-momento sea realmente especial es que estas aplicaciones nos pueden
-abrir una puerta a algo asombroso: la interacción con inteligencia
-artificial.
+¿Qué tal si pudiéramos conversar con nuestras películas favoritas? La inteligencia artificial nos
+puede ayudar a conectarnos con mundos ficticios. Y es por eso que nació la SPA: MovieDev
 
-¿Qué tal si pudiéramos conversar con alguien que vivió hace más de
-cien años o incluso con los personajes de nuestras series y
-películas favoritas o con entidades que normalmente no pueden hablar
-como por ejemplo planetas o animales? La inteligencia artificial nos
-puede ayudar a entender el pasado y a conectarnos con figuras
-históricas, así como a sumergirnos en mundos ficticios.
+Vista inicial: 
 
-![Preview app](https://github-production-user-asset-6210df.s3.amazonaws.com/123121338/271433237-2bd1477b-15ef-49d4-9fcb-226b3263c46a.png)
+![página MovieDev](image.png)
 
 ## 2. Resumen del proyecto
 
-En este proyecto convertirás la aplicación desarrollada
+En este proyecto se convirtió la aplicación desarrollada
 en Dataverse en una
 [Single Page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application),
 manteniendo las funcionalidades de visualizar, filtrar, ordenar y
 calcular alguna estadística, adicionando una nueva vista para
-consultar información detallada de cada personaje/entidad y agregando
-la posibilidad de interactuar con un personaje/entidad o todos ellos
+consultar información detallada de cada película y agregando
+la posibilidad de interactuar con una película o todas ellas
 a través de un sistema de chat impulsado por la
 [API de OpenAI](https://openai.com/product).
 
@@ -56,45 +46,29 @@ vistas de la aplicación
 
 ## 3. Consideraciones generales
 
-* Este proyecto se debe resolver en duplas.
-
-* El rango de tiempo estimado para completar el proyecto es de 4 a 5 Sprints.
-
-* La lógica del proyecto debe estar implementada completamente en JavaScript
-  (ES6+), HTML y CSS. Para este proyecto **no está permitido** utilizar
+* La lógica del proyecto está implementada completamente en JavaScript
+  (ES6+), HTML y CSS. Para este proyecto **no se utilizan** 
   _frameworks_ o librerías de CSS y JS.
 
 * Reutilizar cierta parte del código del proyecto Dataverse, sobre todo el dataset.
-  Además debes refactorizar el código para que sea más modular y reutilizable
+  Además se refactoriza el código para que sea más modular y reutilizable
   implementando nuevas funciones para lograr las funcionalidades requeridas
   en este proyecto.
 
-* El proyecto será entregado subiendo tu código a GitHub (commit/push) y la
-  interfaz será desplegada usando cualquiera de estas opciones:
-  [Vercel](https://vercel.com/) o [Netlify](https://www.netlify.com/).
+* La
+  interfaz será desplegada usando:
+  [Vercel](https://vercel.com/).
 
-* La división y organización del trabajo debe permitir, sin excepciones, que
-  **cada integrante** del equipo practique el aprendizaje de todo lo involucrado
-  en **cada historia**. _No se dividan el trabajo como en una fábrica._
-  - ¿Hasta acá has avanzado en tus proyectos con cierta fluidez y sin mayores
-    problemas? Sé generosa con tus compañeras, permíteles aprender y practicar
-    sin restricciones, aunque tome un poco más de tiempo. Aprovecha de
-    _coachearlas_, de hacer _pair programming_, una de las mejores maneras de
-    aprender es explicando verbalmente.
-  - ¿Se te está haciendo difícil y te cuesta un poco más avanzar? No te quedes
-    con las partes "fáciles" del proyecto, conversa, negocia, exige tu oportunidad
-    para practicar y aprender lo que se te hace más difícil.
-  Para comenzar tendrás que hacer un _fork_ y _clonar_ este repositorio.
 
 ## 4. Funcionalidades
 
-Como entregable final tendrás una Single Page Application (SPA) que permita,
+La Single Page Application (SPA) permite,
 además de **visualizar la data, filtrarla, ordenarla y calcular alguna
 estadística** tal como se hizo en Dataverse, acceder a una página de detalle
-de cada personaje y poder _interactuar_ con
-los personajes o entidades del set de data que utilizaste anteriormente.
+de cada película y poder _interactuar_ con
+las entidades del set de data.
 
-Aquí definimos en más detalle las funcionalidades mínimas que debe tener:
+Funcionalidades mínimas que debe tener:
 
 * La aplicación debe ser _responsive_
 * La aplicación debe ser una SPA con múltiples vistas:
@@ -115,38 +89,13 @@ Aquí definimos en más detalle las funcionalidades mínimas que debe tener:
   interactuar con la API de Open AI
 * Usando la API de Open AI, la aplicación debe permitir al usuario
   interactuar con un personaje/entidad a través de un chat.
-  Por ejemplo, si usamos la data de ejemplo de Dataverse, correspondiente
-  a las mujeres con mayores contribuciones a la programación en la historia,
-  una usuaria puede establecer una conversación
-  interactiva con
-  [Ada Lovelace](https://es.wikipedia.org/wiki/Ada_Lovelace)
-  a través del sistema de chat, obteniendo
-  información sobre sus logros, desafíos y contribuciones a la informática.
-  La inteligencia artificial de OpenAI permite que las respuestas sean
-  informativas y personalizadas según las preguntas de los usuarios.
+  
 
-```text
-Usuaria: "Hola, Ada. Cuéntame más sobre tus contribuciones a la informática."
-
-Ada Lovelace (AI de OpenAI): "¡Hola! Claro, estaré encantada de hablar sobre eso.
-Mis contribuciones más destacadas se relacionan con el trabajo junto a Charles Babbage
-en el diseño de la Máquina Analítica. Además, desarrollé el primer algoritmo destinado
-a ser procesado por una máquina, lo que me convierte en la primera programadora de la historia.
-¿Hay algo más en particular que te gustaría saber?"
- 
-Usuaria: "¡Eso es fascinante! ¿Qué desafíos enfrentaste en ese tiempo?"
-
-Ada Lovelace (AI de OpenAI): "En ese tiempo, enfrenté varios desafíos, uno de los
-principales fue la limitación de recursos y la falta de reconocimiento del potencial
-de la Máquina Analítica. También tuve que superar las restricciones sociales de 
-la época, ya que las mujeres tenían un acceso limitado a la educación en
-matemáticas y ciencias. Sin embargo, mi pasión por la matemática y la visión
-de lo que estas máquinas podrían lograr me impulsaron a seguir adelante."
-```
+![Captura de conversación](image-1.png)
 
 * La aplicación debe  permitir al usuario interactuar de manera simultánea
   con **todos** los personajes/entidades a través de un chat:
-  - Esta funcionalidad debe cargarse en la URL `/panel`
+  - Esta funcionalidad debe cargarse en la URL `/groupChats`
   - La usuaria puede ingresar su pregunta o mensaje para todos los
     personajes/entidades en un cuadro de texto y enviarlo con un botón
   - El mensaje de la usuaria debe ser ajustado para cada personaje/entidad,
@@ -167,142 +116,55 @@ se integre con la IA a través de la API de OpenAI. Para ello, el equipo de
 Laboratoria te proporcionará una API Key que la usuaria deberá poder ingresar
 en la aplicación que tu construirás.
 
-_Nota_: puedes revisar esta [implementación](https://laboratoria-dataverse-talks.netlify.app/)
-de ejemplo, cuyo principal objetivo es mostrarte cómo se vería la
-funcionalidad de chat en tu aplicación, más no tomes el diseño como
-referencia para tu proyecto, siente libre de hacer volar tu imaginación
-diseñando tu propia interfaz.
+![Captura de conversación grupal](image-2.png)
   
 ## 5. Consideraciones técnicas
 
-La lógica del proyecto debe estar implementada completamente en JavaScript
-(ES6), HTML y CSS. En este proyecto NO está permitido usar librerías o
-frameworks, solo [vanilla JavaScript](https://medium.com/laboratoria-how-to/vanillajs-vs-jquery-31e623bbd46e).
-
-El _boilerplate_ que viene con el proyecto es una estructura inicial. Ustedes
-deben ir agregando más archivos conforme vayan avanzando en su proyecto.
-La siguiente es una estructura de archivos que recomendamos:
+El _boilerplate_ tiene la siguiente estructura de archivos:
 
 ```text
 ├── src
 |  ├── components
                    header 
                    footer 
-                   chatsTemplate 
-                   allCards
                    btnSalirdelChat
                    btnRegresar
-                   rootEncapsulado
+                   menuSelects
+                   
 |  ├── data
 |  |  └── dataset.js
 |  ├── lib
 |  |  └── dataFunctions.js
+|  |   -  openAIApi.js
 |  |   -  apyKeyFunction.js
 |  ├── views
-                   - viewAllCards (home actual)(contiene los filtros) ya existe en dataverse
-                   - viewDescriptionCard (nuestra HU1)
+                   - home
+                   - viewDescriptionCard
                    - viewError 
-                   - viewAPIKey / con bienvenida
-                   - viewChats (individual+grupal)
+                   - viewAPIKey
+                   - viewBienvenida
+                   - viewIndividualChat
+                   - viewGroupChat
 |  ├── index.html
 |  ├── index.js
 |  ├── router.js
 |  └── style.css
 ├── test
 |  └── dataFunctions.spec.js
-|  └── example.spec.js
+|  └── apiKey.spec.js
+|  └── components.spec.js
+|  └── openAIApi.spec.js
 ├── README.md
 └── package.json
 
 ```
 
-### `src/components`
-
-Esta carpeta contendrá archivos JavaScript
-que representan [componentes](https://lenguajejs.com/vuejs/componentes/que-es-un-componente/)
-reutilizables de tu aplicación. Estos componentes
-pueden ser elementos de la interfaz de usuario que se utilizan en varias partes
-de tu aplicación. Organizar tus componentes de esta manera ayuda a mantener un
-código más modular y reutilizable.
-
-### `src/data`
-
-En esta carpeta están los datos con los que vas a trabajar (los datos de ejemplo
-o los datos que generarías con ayuda de la inteligencia artificial).
-
-### `src/lib`
-
-En esta carpeta, crearás módulos que contengan funcionalidades no relacionadas
-al DOM. Aquí podrás incluir el archivo
-`dataFunctions.js` que contiene las funciones que te permiten filtrar,
-ordenar y hacer cálculos agregados. También podrás crear  archivos con
-las funciones que
-interactúen con la API de inteligencia artificial o utilidades destinadas
-a almacenar datos en el local storage.
-
-### `src/views`
-
-Esta carpeta generalmente contiene archivos de los componentes que
-representan las diferentes páginas o vistas de tu aplicación.
-Cada vista (view) puede tener su propio archivo
-JavaScript, que exporta una función que es responsable de generar
-los elementos del DOM.
-
-### `src/index.html`
-
-Como en el proyecto anterior, existe un archivo `index.html`. En este archivo
-HTML encontrarás un elemento DOM `<div id='root'></div>` donde vas a
-renderizar las diferentes vistas de tu aplicación.
-
-### `src/index.js`
-
-El punto de partida para tu SPA sera el archivo `src/index.js`. Acá encontrarás
-algunas instrucciones y comentarios para guiarte en el inicio del desarrollo
-de tu aplicación.
-
-### `src/router.js`
-
-En este archivo vas a manejar el enrutamiento de tu aplicación. Es un archivo
-que debes crearlo por tu cuenta.
-
-### `src/style.css`
-
-Es un archivo que debes crearlo por tu cuenta para agregar los estilos que
-necesites para tu aplicación.
-
-### `src/test`
-
-Esta carpeta contiene los tests de tus funciones y componentes. Por ejemplo
-los tests de dataFunctions deben estar aquí.
-
-## 6. Criterios de aceptación mínimos del proyecto
-
-Además de las funcionalidades que definimos en la sección de
-[Funcionalidades](#4-funcionalidades), tu proyecto debe cumplir con los
-siguientes requisitos:
 
 ### Definición del producto
 
-Documenta brevemente tu trabajo en el archivo `README.md` de tu repositorio,
-contándonos cómo fue tu proceso de diseño y cómo crees que el producto resuelve
-el problema (o problemas) que tiene tu usuaria.
+Nuestras usuarias son chicas que se están sumergiendo al mundo del desarrollo web y que para saber más quisieran conocer películas de tecnología relacionadas con el rubro
 
 ### Historias de usuaria
-
-Una vez que entiendas las necesidades de tus usuarias, escribe las [Historias
-de Usuaria](https://es.wikipedia.org/wiki/Historias_de_usuario) que representen
-todo lo que la usuaria necesita hacer/ver. Las **Historias de Usuaria** deben
-ser el resultado de tu proceso de investigación o _research_ de tus usuarias.
-
-Asegúrate de incluir la definición de terminado (_definition of done_) y los
-Criterios de Aceptación para cada una.
-
-Usa tus historias de usuaria para planificar tus sprints dividiendo
-cada historia en tareas.
-
-En la medida de lo posible, termina una Historia de Usuaria antes de pasar
-a la siguiente (cumpliendo con la Definición de Terminado y los Criterios
-de Aceptación).
 
 #### Hu 1
 **Yo como desarrolladora web quiero** ver información más detallada y específica de cada uno de los films. **Para** saber más detalles interesantes y no quedarme con información básica.
@@ -319,62 +181,89 @@ de Aceptación).
 - La interfaz de usuario para la vista detallada debe ser estéticamente agradable y coherente con el diseño general de la página web. Respeta las buenas prácticas de UX design
 - Debe ser responsive. Y realizar pruebas para garantizar que la funcionalidad de información detallada funcione correctamente en diversos navegadores y dispositivos.
 
+#### Hu 2
+**Yo como desarrolladora web quiero** entablar una conversación con cada uno de los films de MovieDev. **Para** preguntar y saber de primera mano más detalles, curiosidades y cosas interesantes que no se encuentran en su descripción.
+
+##### Criterios de aceptación:
+- En la pantalla de cada película debe haber un botón claramente visible que permita a la usuaria iniciar una conversación para interactuar con dicha película.
+- Si la usuaria ingresó previamente API key en el botón correspondiente: al hacer click en el botón de chat se debe abrir un chat que permita a la usuaria enviar preguntas o comentarios.
+- Si la usuaria no ingresó previamente API key en el botón correspondiente: al hacer click en el botón de chat se debe abrir la vista para ingresar credenciales API key y después de ingresadas la página automáticamente la redirigirá al chat que le permitirá a la usuaria enviar preguntas o comentarios.
+- La pantalla de chat individual debe adaptarse a diferentes tipos de dispositivos y navegadores
+- Se puede diferenciar claramente en el chat que hay - interacción entre la usuaria y la película
+- Puede usar emoticones
+- Hay botón de envío para mensajes
+- Es agradable a la vista
+- Tiene la opción de salir del chat por si la usuaria no quiere continuar chateando
+- Hay una ventana para ver el despliegue del chat y otra para el input de la usuaria.
+##### Definición de terminado:
+- Botón de entrar a chat funciona sin errores, cumple con criterios de diseño UX. Es legible, con suficiente contaste. - Posición que llama a la acción de manera intuitiva.
+- El despliegue de la view de chat individual se procesa de manera rápida y preciso, sin errores.
+- Si es el caso, el redireccionamiento de credenciales API key hacia el chat es rápido, preciso y sin errores.
+- La pantalla de chat individual es una vista independiente, con su propia URL.
+- La pantalla de chat individual es responsiva.
+- El funcionamiento del chat y su legibilidad fue probado con testeos de usabilidad.
+- El ingreso de los inputs y la lectura del chat total se hace cómodamente sin perturbar la vista. Admite los caracteres típicos necesarios en un chat.
+- El botón de envío de mensajes funciona sin errores, cumple con criterios de diseño UX. Es legible, con suficiente contaste. Posición que llama a la acción de manera intuitiva.
+- La vista del chat tiene un estilo coherente que corresponde al resto de la página web.
+- La función de chat supera sus propios tests.
+
+#### Hu 3
+**Yo como desarrolladora web quiero** entablar una conversación con todos los films de MovieDev y sus personajes. **Para** entretenerme y conocer más sus diferencias, similitudes y rankings.
+
+##### Criterios de aceptación:
+- Botón animado resaltado en la parte superior de la página con la función de ingresar a chatear con los personajes de los films.
+- Al hacer Click en el botón debe cambiar la página y mostrar todos los personajes y la conversación con la opción de enviar emojis.
+- El chat debe tener forma de nube y el nombre de quien lo escribe.
+- En la parte inferior del chat el usuario debe tener la opción de regresar a la página principal.
+- Todo su contenido debe ser coherente con el tamaño de pantalla desde el dispositivo del que se ingresa.
+- Si la usuaria ingresa una credencial errónea se le debe avisar sin salir de la página actual.
+##### Definición de terminado:
+- Al clickear “chat grupal” se generará un nuevo renderizado con la vista y esta asociada al pathname: /chatgrupal y su valor generará una función específica de vista renderizadora en el que se muestre todas las partes del chat con un estilo “burbuja”.
+- Los módulos deben superar los tests propuestos por Laboratoria y deben ser netamente independientes para facilitar su modulación.
+- El despliegue debe ser Resposive y debe cumplir con los requisitos que se establecieron desde el inicio y ofrece una experiencia de usuaria consistente y atractiva.
+- Crear un alert para advertir el ingreso erróneo.
+
+#### Hu 4
+**Yo como desarrolladora web quiero** ingresar mis credenciales para chatear con los films de MovieDev de manera segura y sencilla. **Para** no perder tiempo, no perderme en la página y hacerlo de la manera más automatizada.
+
+##### Criterios de aceptación:
+- Botón animado resaltado en la parte superior de la página con la función de ingresar la Api Key.
+- Al hacer Click en el botón debe cambiar la página y mostrar un cuadro, allí el usuario ingresará su Api.
+- En la parte inferior del recuadro de ingreso el usuario tiene dos opciones una para validar los datos y otra para regresar a la página principal.
+- Todo su contenido debe ser coherente con el tamaño de pantalla desde el dispositivo con el que se ingresa.
+##### Definición de terminado:
+- Al clickear el botón de “ingresar Api Key” se generará un nuevo renderizado con la vista y esta asociada al pathname: /api y su valor generará una función específica de vista renderizadora en el que se muestre un imput con el ingreso de las credenciales de la Api Key.
+- Los módulos deben superar los tests propuestos por Laboratoria y deben ser netamente independientes para facilitar su modulación.
+- El despliegue debe ser Resposive y debe cumplir con los requisitos que se establecieron desde el inicio y ofrece una experiencia de usuaria consistente y atractiva.
+
+
+
 ### Diseño de la Interfaz de Usuaria
 
-#### Prototipo de baja fidelidad
+#### Prototipo de mediana fidelidad
 
-[Prototipado en Figma]([https://www.figma.com/](https://www.figma.com/file/6BDUns99NmJqwwlsWQ3NEA/Untitled?type=design&node-id=0-1&mode=design&t=sW4geSWYvtIiM4x1-0))
+[Prototipado en Figma]([https://www.figma.com/file/g47GRJQtlshr08n3j2mmKv/Dataverse-chat?type=design&node-id=1-651&mode=design&t=xdRUuAqpyBamvtpf-0)
 
-Durante tu trabajo deberás haber hecho e iterado bocetos (_sketches_) de tu
-solución usando papel y lápiz. Te recomendamos tomar fotos de todas las
-iteraciones que hagas, que las subas a tu repositorio y las menciones en tu
-`README.md`.
+Se iteró entre bocetos.
 
-Recuerda pedir feedback de tu prototipo a tus compañeras y/o coaches.
+Solicitamos continuo feedback de nuestros prototipos a nuestras compañeras y/o coaches.
 
-#### Prototipo de alta fidelidad
-
-Lo siguiente es diseñar tu Interfaz de Usuaria (UI por sus siglas en inglés -
-_User Interface_). Para eso debes aprender a utilizar alguna herramienta de
-diseño visual. Nosotros te recomendamos [Figma](https://www.figma.com/) que es
-una herramienta que funciona en el navegador y, además, puedes crear una cuenta
-gratis. Sin embargo, eres libre de utilizar otros editores gráficos como
-Illustrator, Photoshop, etc.
-
-El diseño debe representar el _ideal_ de tu solución. Digamos que es lo que
-desearías implementar si tuvieras tiempo ilimitado para trabajar. Además, tu
-diseño debe seguir los fundamentos de _visual design_.
-
-Recuerda pedir feedback de tu prototipo a tus compañeras y/o coaches.
 
 ### Testeos de usabilidad
 
-Durante el reto deberás hacer _tests_ de usabilidad con distintos usuarias,
-y con base en los resultados, deberás iterar tus diseños. Cuéntanos
-qué problemas de usabilidad detectaste a través de los _tests_ y cómo los
-mejoraste en tu propuesta final.
+Hallazgos solucionados a través del diseño:
+- Los usuarios no podían encontrar fácilmente las diferentes secciones o funcionalidades de la aplicación. El flujo de interacción del usuario resultaba confuso.
 
-### Implementación de la Interfaz de Usuaria (HTML/CSS/JS)
+- No había buena respuesta del diseño en diferentes dispositivos.
 
-Luego de diseñar tu interfaz de usuaria deberás trabajar en su implementación.
-**No** es necesario que construyas la interfaz exactamente como la diseñaste.
-Tu tiempo de hacking es escaso, así que deberás priorizar.
+- Los textos no eran muy legibles.
 
-Revisa [las funcionalidades](#4-funcionalidades) que el proyecto pide del interfaz.
+- Interactividad de la aplicación estaba siendo deficiente.
 
-### Pruebas unitarias
+- El usuario no sabía qué hacerdespués del error por credencial APIKey.No había claridad.
 
-El _boilerplate_ de este proyecto no incluye Pruebas Unitarias (_tests_), así es
-que  tendrás que escribirlas tú para las funciones encargadas de  _procesar_,
-_filtrar_ y _ordenar_ la data, así como _calcular_ estadísticas.
-Te recomendamos usar
-el framework [Jest](https://jestjs.io/) para ejecutar las pruebas unitarias.
-Consultar su documentación.
+- La paleta de colores resultaba agotadora.
 
-Tus _pruebas unitarias_ deben dar una cobertura del 70% de _statements_
-(_sentencias_), _functions_ (_funciones_), _lines_ (_líneas_), y _branches_
-(_ramas_) del archivo `src/dataFunctions.js` que contenga tus funciones y
-está detallado en la sección de [Consideraciones técnicas](#5-consideraciones-técnicas).
 
 ## 7. Objetivos de aprendizaje
 
@@ -383,7 +272,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ### HTML
 
-- [ ] **Uso de HTML semántico**
+- [x] **Uso de HTML semántico**
 
   <details><summary>Links</summary><p>
 
@@ -393,7 +282,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ### CSS
 
-- [ ] **Uso de selectores de CSS**
+- [x] **Uso de selectores de CSS**
 
   <details><summary>Links</summary><p>
 
@@ -401,7 +290,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [CSS Selectors - MDN](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors)
 </p></details>
 
-- [ ] **Modelo de caja (box model): borde, margen, padding**
+- [x] **Modelo de caja (box model): borde, margen, padding**
 
   <details><summary>Links</summary><p>
 
@@ -412,7 +301,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [display - CSS Tricks](https://css-tricks.com/almanac/properties/d/display/)
 </p></details>
 
-- [ ] **Uso de flexbox en CSS**
+- [x] **Uso de flexbox en CSS**
 
   <details><summary>Links</summary><p>
 
@@ -431,7 +320,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ### Web APIs
 
-- [ ] **Uso de selectores del DOM**
+- [x] **Uso de selectores del DOM**
 
   <details><summary>Links</summary><p>
 
@@ -440,7 +329,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Localizando elementos DOM usando selectores - MDN](https://developer.mozilla.org/es/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors)
 </p></details>
 
-- [ ] **Manejo de eventos del DOM (listeners, propagación, delegación)**
+- [x] **Manejo de eventos del DOM (listeners, propagación, delegación)**
 
   <details><summary>Links</summary><p>
 
@@ -450,7 +339,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [El objeto Event](https://developer.mozilla.org/es/docs/Web/API/Event)
 </p></details>
 
-- [ ] **Manipulación dinámica del DOM**
+- [x] **Manipulación dinámica del DOM**
 
   <details><summary>Links</summary><p>
 
@@ -462,21 +351,21 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Node.textContent - MDN](https://developer.mozilla.org/es/docs/Web/API/Node/textContent)
 </p></details>
 
-- [ ] **Ruteado (History API, evento hashchange, window.location)**
+- [x] **Ruteado (History API, evento hashchange, window.location)**
 
   <details><summary>Links</summary><p>
 
   * [Manipulando el historial del navegador - MDN](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
 </p></details>
 
-- [ ] **Browser storage (localStorage, sessionStorage)**
+- [x] **Browser storage (localStorage, sessionStorage)**
 
   <details><summary>Links</summary><p>
 
   * [Window.localStorage - MDN](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage)
 </p></details>
 
-- [ ] **Fetch API**
+- [x] **Fetch API**
 
   <details><summary>Links</summary><p>
 
@@ -485,14 +374,14 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ### JavaScript
 
-- [ ] **Callbacks**
+- [x] **Callbacks**
 
   <details><summary>Links</summary><p>
 
   * [Función Callback - MDN](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
 </p></details>
 
-- [ ] **Promesas**
+- [x] **Promesas**
 
   <details><summary>Links</summary><p>
 
@@ -500,9 +389,9 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [How to Write a JavaScript Promise - freecodecamp (en inglés)](https://www.freecodecamp.org/news/how-to-write-a-javascript-promise-4ed8d44292b8/)
 </p></details>
 
-- [ ] **Uso de identificadores descriptivos (Nomenclatura y Semántica)**
+- [x] **Uso de identificadores descriptivos (Nomenclatura y Semántica)**
 
-- [ ] **Variables (declaración, asignación, ámbito)**
+- [x] **Variables (declaración, asignación, ámbito)**
 
   <details><summary>Links</summary><p>
 
@@ -510,7 +399,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Variables](https://curriculum.laboratoria.la/es/topics/javascript/basics/variables)
 </p></details>
 
-- [ ] **Funciones (params, args, return)**
+- [x] **Funciones (params, args, return)**
 
   <details><summary>Links</summary><p>
 
@@ -520,7 +409,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Funciones — bloques de código reutilizables - MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/Functions)
 </p></details>
 
-- [ ] **Uso de condicionales (if-else, switch, operador ternario, lógica booleana)**
+- [x] **Uso de condicionales (if-else, switch, operador ternario, lógica booleana)**
 
   <details><summary>Links</summary><p>
 
@@ -528,9 +417,9 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Tomando decisiones en tu código — condicionales - MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/conditionals)
 </p></details>
 
-- [ ] **Diferenciar entre tipos de datos primitivos y no primitivos**
+- [x] **Diferenciar entre tipos de datos primitivos y no primitivos**
 
-- [ ] **Arrays (arreglos)**
+- [x] **Arrays (arreglos)**
 
   <details><summary>Links</summary><p>
 
@@ -543,16 +432,16 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Array.prototype.reduce() - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
 </p></details>
 
-- [ ] **Objetos (key, value)**
+- [x] **Objetos (key, value)**
 
   <details><summary>Links</summary><p>
 
   * [Objetos en JavaScript](https://curriculum.laboratoria.la/es/topics/javascript/objects/objects)
 </p></details>
 
-- [ ] **Diferenciar entre expresiones (expressions) y sentencias (statements)**
+- [x] **Diferenciar entre expresiones (expressions) y sentencias (statements)**
 
-- [ ] **Uso de bucles/ciclos (while, for, for..of)**
+- [x] **Uso de bucles/ciclos (while, for, for..of)**
 
   <details><summary>Links</summary><p>
 
@@ -560,7 +449,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Bucles e iteración - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Loops_and_iteration)
 </p></details>
 
-- [ ] **Módulos de ECMAScript (ES Modules)**
+- [x] **Módulos de ECMAScript (ES Modules)**
 
   <details><summary>Links</summary><p>
 
@@ -568,21 +457,21 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [export - MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/export)
 </p></details>
 
-- [ ] **Pruebas unitarias (unit tests)**
+- [x] **Pruebas unitarias (unit tests)**
 
   <details><summary>Links</summary><p>
 
   * [Empezando con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/getting-started)
 </p></details>
 
-- [ ] **Pruebas asíncronas**
+- [x] **Pruebas asíncronas**
 
   <details><summary>Links</summary><p>
 
   * [Tests de código asincrónico con Jest - Documentación oficial](https://jestjs.io/docs/es-ES/asynchronous)
 </p></details>
 
-- [ ] **Uso de mocks y espías**
+- [x] **Uso de mocks y espías**
 
   <details><summary>Links</summary><p>
 
@@ -591,14 +480,14 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ### HTTP
 
-- [ ] **Cabeceras (headers)**
+- [x] **Cabeceras (headers)**
 
   <details><summary>Links</summary><p>
 
   * [HTTP headers - MDN](https://developer.mozilla.org/es/docs/Web/HTTP/Headers)
 </p></details>
 
-- [ ] **Consulta o petición (request) y respuesta (response).**
+- [x] **Consulta o petición (request) y respuesta (response).**
 
   <details><summary>Links</summary><p>
 
@@ -606,7 +495,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Mensajes HTTP - MDN](https://developer.mozilla.org/es/docs/Web/HTTP/Messages)
 </p></details>
 
-- [ ] **Códigos de status de HTTP**
+- [x] **Códigos de status de HTTP**
 
   <details><summary>Links</summary><p>
 
@@ -616,14 +505,14 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ### AI Prompting
 
-- [ ] **Priming Chatbots**
+- [x] **Priming Chatbots**
 
   <details><summary>Links</summary><p>
 
   * [Priming Chatbots | Learn Prompting: Your Guide to Communicating with AI](https://learnprompting.org/es/docs/basics/priming_prompt)
 </p></details>
 
-- [ ] **OpenAI API**
+- [x] **OpenAI API**
 
   <details><summary>Links</summary><p>
 
@@ -635,36 +524,36 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ### Control de Versiones (Git y GitHub)
 
-- [ ] **Git: Instalación y configuración**
+- [x] **Git: Instalación y configuración**
 
-- [ ] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
+- [x] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
 
-- [ ] **Git: Integración de cambios entre ramas (branch, checkout, fetch, merge, reset, rebase, tag)**
+- [x] **Git: Integración de cambios entre ramas (branch, checkout, fetch, merge, reset, rebase, tag)**
 
-- [ ] **GitHub: Creación de cuenta y repos, configuración de llaves SSH**
+- [x] **GitHub: Creación de cuenta y repos, configuración de llaves SSH**
 
-- [ ] **GitHub: Despliegue con GitHub Pages**
+- [x] **GitHub: Despliegue con GitHub Pages**
 
   <details><summary>Links</summary><p>
 
   * [Sitio oficial de GitHub Pages](https://pages.github.com/)
 </p></details>
 
-- [ ] **GitHub: Colaboración en Github (branches | forks | pull requests | code review | tags)**
+- [x] **GitHub: Colaboración en Github (branches | forks | pull requests | code review | tags)**
 
 ### Centrado en el usuario
 
-- [ ] **Diseñar y desarrollar un producto o servicio poniendo a las usuarias en el centro**
+- [x] **Diseñar y desarrollar un producto o servicio poniendo a las usuarias en el centro**
 
 ### Diseño de producto
 
-- [ ] **Crear prototipos de alta fidelidad que incluyan interacciones**
+- [x] **Crear prototipos de alta fidelidad que incluyan interacciones**
 
-- [ ] **Seguir los principios básicos de diseño visual**
+- [x] **Seguir los principios básicos de diseño visual**
 
 ### Investigación
 
-- [ ] **Planear y ejecutar testeos de usabilidad de prototipos en distintos niveles de fidelidad**
+- [x] **Planear y ejecutar testeos de usabilidad de prototipos en distintos niveles de fidelidad**
 
   <details><summary>Links</summary><p>
 
@@ -672,134 +561,3 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Pruebas con Usuarios 1 — ¿Qué, cuándo y para qué testeamos?](https://eugeniacasabona.medium.com/pruebas-con-usuarios-1-qu%C3%A9-cu%C3%A1ndo-y-para-qu%C3%A9-testeamos-7c3a89b4b5e7)
 </p></details>
 
-## 8. Pistas, tips y lecturas complementarias
-
-### Primeros pasos
-
-Súmate al canal de Slack
-[#project-dataverse-chat](https://claseslaboratoria.slack.com/archives/C03MV35EP5M)
-para conversar y pedir ayuda del proyecto.
-
-Te sugerimos algunas tareas para dar inicio al proyecto. No es necesario
-abordarlas de manera secuencial, y puedes llevarlas a cabo en paralelo
-mientras avanzas con la planificación de las Historias de Usuario:
-
-#### Diseño de Wireframes o Prototipo de Baja Fidelidad
-
-Comienza por diseñar wireframes o prototipos de baja fidelidad para capturar
-los requisitos funcionales de tu proyecto. Es recomendable comenzar con un
-enfoque ["mobile first"](https://mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
-para garantizar la usabilidad en dispositivos móviles,
-y luego extender la atención a pantallas más grandes, como las de escritorio.
-
-#### Comprende los Conceptos de SPA (Single Page Application) y Enrutamiento
-
-Antes de comenzar a codificar, asegúrate de comprender los conceptos de una
-Aplicación de Página Única (SPA) y el enrutamiento de páginas. Esto te
-permitirá crear una experiencia de usuario fluida y dinámica. Investiga
-las mejores prácticas y las herramientas disponibles para implementar un
-SPA en tu proyecto.
-
-#### Preparación de la Estructura del Proyecto
-
-Organiza tu proyecto creando la estructura de directorios necesaria y
-configurando un sistema de enrutamiento básico para cambiar dinámicamente
-entre dos vistas. Asegúrate de que tu proyecto tenga una arquitectura
-limpia y escalable.
-
-#### Integración de Dataverse
-
-Si tienes la intención de utilizar código de Dataverse en tu proyecto,
-asegúrate de importar los archivos relevantes, como `dataset.js`,
-`dataFunctions.js`, `main.js`, y `view.js`, junto con sus respectivas
-pruebas. Ten en cuenta que `main.js` y `view.js` requerirán una
-refactorización para adaptarse a las vistas y componentes específicos
-de tu proyecto.
-
-#### Identifica las funcionalides de Open AI
-
-Consulta la documentación de la
-[API de Open AI](https://platform.openai.com/docs/guides/gpt?lang=node.js).
-Identifica y prueba las funciones que usarás para construir el chat
-de tu aplicación
-
-#### Cuando ya estés lista para codear, te sugerimos empezar de esta manera
-
-1. Una de las integrantes del equipo debe realizar un :fork_and_knife:
-   [fork](https://help.github.com/articles/fork-a-repo/) del repo de tu cohort,
-   tus _coaches_ te compartirán un _link_ a un repo y te darán acceso de lectura
-   en ese repo. La otra integrante del equipo deber hacer un fork **del
-   repositorio de su compañera** y
-   [configurar](https://gist.github.com/BCasal/026e4c7f5c71418485c1) un `remote`
-   hacia el mismo.
-2. :arrow_down: [Clona](https://help.github.com/articles/cloning-a-repository/)
-   tu _fork_ a tu computadora (copia local).
-3. 📦 Instala las dependencias del proyecto con el comando `npm install`. Esto
-   asume que has instalado [Node.js](https://nodejs.org/) (que incluye [npm](https://docs.npmjs.com/)).
-4. Si todo ha ido bien, deberías poder ejecutar las :traffic_light:
-   pruebas unitarias (unit tests) con el comando `npm test`.
-5. Para ver la interfaz de tu programa en el navegador, usa el comando
-  `npm start` para arrancar el servidor web y dirígete a
-  `http://localhost:5000` en tu navegador.
-6. A codear se ha dicho! :rocket:
-
-### Contenido de referencia
-
-#### Desarrollo Front-end
-
-* [Topicos en la curricula de sitio Laboratoria](https://curriculum.laboratoria.la/es/web-dev/topics)
-  testing, arreglos, objetos, funciones, DOM en Browser Javascript.
-* [Promesas](https://es.javascript.info/promise-basics)
-* [Haciendo peticiones con Fetch](https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Utilizando_Fetch)
-* [Almacenamiento con LocalStorage](https://es.javascript.info/localstorage)
-* [Creando un router SPA con vanilla Javascript](https://github.com/Laboratoria/guide-router/blob/guide-v1/README.md)
-* [Delegación de eventos](https://es.javascript.info/event-delegation)
-
-#### Inteligencia Artificial y Prompting
-
-* [Learn Prompting](https://learnprompting.org/es/docs/category/-basic-applications)
-* [Prompt Engineering Roadmap](https://roadmap.sh/prompt-engineering)
-* [OpenAI Playground](https://beta.openai.com/playground)
-* [Making requests](https://platform.openai.com/docs/api-reference/making-requests)
-* [Chat with AI](https://platform.openai.com/docs/api-reference/chat)
-* [Priming Chatbots](https://learnprompting.org/es/docs/basics/priming_prompt)
-* [Build your aplication with AI](https://platform.openai.com/docs/quickstart/build-your-application)
-
-#### Herramientas
-
-* [Jest](https://jestjs.io/)
-* [Vercel](https://vercel.com/)
-* [Netlify](https://www.netlify.com/)
-
-## 9. Consideraciones para pedir tu Project Feedback
-
-Antes de agendar tu Project Feedback con un coach, asegúrate que tu proyecto:
-
-* [ ] Cumple con todas las pruebas unitarias al ejecutar `npm run test` y
-  que tienen una cobertura del 70% de _statements_ (_sentencias_),
-  _functions_ (_funciones_), _lines_ (_líneas_), y _branches_
-* [ ] Esta libre de _errores_ de `eslint` al ejecutar `npm run pretest`
-* [ ] Está subido a GitHub y desplegado en Netlify o Vercel.
-* Tiene un `README.md` con la siguiente:
-  - [ ] _Definición del producto_ clara e informativa
-  - [ ] Historias de usuaria
-  - [ ] Un _sketch_ de la solución (prototipo de baja fidelidad) y
-    _Diseño de la Interfaz de Usuaria_ (prototipo de alta fidelidad)
-  - [ ] El listado de problemas que detectaste a través de tests
-    de usabilidad en el `README.md`
-* Tiene un UI que cumple las funcionalidades:
-  - [ ] Permite ver toda la data en la pantalla principal con opciones para
-    filtrar y ordenar.
-  - [ ] Permite ingresar un API Key a través de un formulario.
-  - [ ] Permite ver una página con más detalles de cada entidad. En esta página
-    se puede iniciar el chat.
-  - [ ] Permite conversar con el personaje o entidad de la data a través
-    de un chat.
-  - [ ] Permite chatear de forma grupal con todas las entidades de la data.
-  - [ ] Es responsive y fue realizado usando la metodología mobile first.
-
-Recuerda que debes hacer una autoevaluación de _objetivos de aprendizaje_ y
-_life skills_ desde tu dashboard de estudiante.
-
-Si no has completado todo lo anterior, no consideramos que estás lista para
-tu sesión de Project Feedback.
