@@ -37,6 +37,11 @@ export const viewAPIKey = () => {
     if (apiKey) {
       setApiKey(apiKey);
       navigateTo(`/confirmar`);
+
+      const hamburguerMenu = document.querySelector(".hamburguer");
+      if (hamburguerMenu) {
+        hamburguerMenu.style.display = "none";
+      }
     } else {
       errorElement.textContent = "*Campo obligatorio";
       errorElement.classList.add("required"); 

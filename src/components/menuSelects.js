@@ -44,9 +44,6 @@ export const selectsComponent = () => {
 
         `;
 
-  // const selectFilter = selects.querySelector("#genre");
-  // console.log(selectFilter);
-
   return selects;
 };
 //se puede llamar desde acá al home

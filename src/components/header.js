@@ -35,11 +35,21 @@ export const headerComponent = () => {
   const btnAPIkey = document.querySelector(".btn-api");
   btnAPIkey.addEventListener("click", () => {
     navigateTo(`/viewAPIKey`);
+
+    const hamburguerMenu = document.querySelector(".hamburguer");
+    if (hamburguerMenu) {
+      hamburguerMenu.style.display = "none";
+    }
   });
 
   const btnChatgrupal = document.querySelector(".btn-chat-grupal");
   btnChatgrupal.addEventListener("click", () => {
     navigateTo(`/groupChats`);
+
+    const hamburguerMenu = document.querySelector(".hamburguer");
+    if (hamburguerMenu) {
+      hamburguerMenu.style.display = "none";
+    }
   });
 
   return header;

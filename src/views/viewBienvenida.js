@@ -1,7 +1,6 @@
 import { headerComponent } from "./../components/header.js";
 import { footerComponent } from "./../components/footer.js";
 import { btnHistoryBack } from "../components/btnSalirdelChat.js";
-import { navigateTo } from "./../router.js";
 
 export const viewBienvenida = () =>{
   const root = document.createElement("div");
@@ -32,6 +31,7 @@ export const viewBienvenida = () =>{
   div.appendChild(btnExitChat);
   btnExitChat.addEventListener("click", () => {
     window.history.back();
+    
   })
 
   const footer = footerComponent();
